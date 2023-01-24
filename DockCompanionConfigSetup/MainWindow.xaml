@@ -1,9 +1,9 @@
 ﻿<Window x:Class="DockCompanionConfigSetup.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Window Finder"
+        Title="Dock Companion Initial Setup"
         Width="800"
-        Height="900"
+        Height="925"
         WindowStartupLocation="CenterScreen">
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="This application is used to create a Config.txt file for Dock Companion to reference. IF THIS APPLICATION IS LAUNCHING INSTEAD OF YOUR EXPECTED TARGET APPLICATION IT IS BECAUSE THE Config.txt FILE HAS BEEN MOVED OR DELETED - Follow the instructions to restore the Config.txt. Detailed instructions are available on Github." Margin="20,40,20,10" TextWrapping="Wrap" />
@@ -15,9 +15,10 @@
             </ListBox.ItemContainerStyle>
             <ListBoxItem>Step 1: Open 2 instances of the target application</ListBoxItem>
             <ListBoxItem>Step 2: Click "Find Windows"</ListBoxItem>
-            <ListBoxItem>Step 3: Type a unique phrase in the "Search Phrase" field</ListBoxItem>
-            <ListBoxItem>Step 4: Use the "Browse" button to navigate to the target application's exe file</ListBoxItem>
-            <ListBoxItem>Step 5: Click "Save"</ListBoxItem>
+            <ListBoxItem>Step 3: Evaluate the Window Titles for a unique phrase that identifies your target application</ListBoxItem>
+            <ListBoxItem>Step 4: Type the unique phrase in the "Search Phrase" field exactly as it appears in the Window Titles</ListBoxItem>
+            <ListBoxItem>Step 5: Use the "Browse" button to navigate to the target application's exe file</ListBoxItem>
+            <ListBoxItem>Step 6: Click "Save"</ListBoxItem>
         </ListBox>
         <ListBox Name="WindowTitles"
          Margin="20,20,20,30"
