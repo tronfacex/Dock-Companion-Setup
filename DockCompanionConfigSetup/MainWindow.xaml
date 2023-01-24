@@ -6,7 +6,7 @@
         Height="900"
         WindowStartupLocation="CenterScreen">
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="This application is used to create a Config.txt file for Dock Companion to reference. Detailed instructions are available on Github." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <TextBlock Text="This application is used to create a Config.txt file for Dock Companion to reference. IF THIS APPLICATION IS LAUNCHING INSTEAD OF YOUR EXPECTED TARGET APPLICATION IT IS BECAUSE THE Config.txt FILE HAS BEEN MOVED OR DELETED - Follow the instructions to restore the Config.txt. Detailed instructions are available on Github." Margin="20,40,20,10" TextWrapping="Wrap" />
         <ListBox Name="InstructionList" BorderThickness="0" BorderBrush="Transparent">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
