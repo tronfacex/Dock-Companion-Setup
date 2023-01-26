@@ -1,0 +1,28 @@
+﻿<Window x:Class="DockCompanionConfigSetup.InitialSetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockCompanionConfigSetup"
+        mc:Ignorable="d"
+        Title="Dock Companion Initial Setup" Height="500" Width="650" FontFamily="{StaticResource FontFamily}">
+    <Window.Resources>
+        <local:StringConverter x:Key="stringConverter"/>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Welcome to Dock Companion's Initial Setup. Click &quot;Browse...&quot; and navigate to the application you would like Dock Companion to target and Click &quot;Save&quot;." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+            <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
+                <Button Content="Browse..." Click="BrowseButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Name="Save" Content="Save" Margin="20,20,20,2" Width="300" Click="Save_Click"/>
+        <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
+    <Run FontWeight="Bold" FontSize="14" Text="IF THIS WINDOW IS LAUNCHING INSTEAD OF THE INTENDED TARGET APPLICATION THERE IS AN ISSUE WITH THE CONFIG.TXT." />
+    <Run FontSize="12" Text="You can try repeating the Initial Setup process above or use the Debug tool below to set a custom Process Name." />
+        </TextBlock>
+        <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
+    </StackPanel>
+</Window>

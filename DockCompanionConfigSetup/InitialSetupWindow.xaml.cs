@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
@@ -18,19 +17,13 @@ using System.IO;
 namespace DockCompanionConfigSetup
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for InitialSetupWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InitialSetupWindow : Window
     {
-        //RetrieveWindowHandles retrieveWindowHandles;
-        public MainWindow()
+        public InitialSetupWindow()
         {
             InitializeComponent();
-        }
-        private void GetWindows_Click(object sender, RoutedEventArgs e)
-        {
-            RetrieveWindowHandles.GetWindowHandles();
-            WindowTitles.ItemsSource = RetrieveWindowHandles.WindowList;
         }
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,11 +35,11 @@ namespace DockCompanionConfigSetup
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            string inputStringValue = inputString.Text.Replace("System.Windows.Controls.TextBox: ", "");
+            //string inputStringValue = inputString.Text.Replace("System.Windows.Controls.TextBox: ", "");
             string inputFilePathValue = inputFilePath.Text.Replace("System.Windows.Controls.TextBox: ", "");
             string filePath = "Config.txt";
 
-            if (string.IsNullOrWhiteSpace(inputStringValue) || string.IsNullOrWhiteSpace(inputFilePathValue))
+            if (/*string.IsNullOrWhiteSpace(inputStringValue) || */string.IsNullOrWhiteSpace(inputFilePathValue))
             {
                 MessageBox.Show("One or more of the required fields above is empty. Please double check both fields and try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -61,15 +54,21 @@ namespace DockCompanionConfigSetup
             // Write the strings to the file
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.WriteLine(inputStringValue);
+                writer.WriteLine(System.IO.Path.GetFileNameWithoutExtension(inputFilePathValue));
                 writer.WriteLine(inputFilePathValue);
             }
-          //  MessageBox.Show("Config.txt file setup complete. This application will now close.", "Config Setup", MessageBoxButton.OK);
+            //  MessageBox.Show("Config.txt file setup complete. This application will now close.", "Config Setup", MessageBoxButton.OK);
             MessageBoxResult result = MessageBox.Show("Config.txt file setup complete. You can now exit the Config Setup application.", "Config Setup", MessageBoxButton.OK);
             if (result == MessageBoxResult.OK)
             {
                 Application.Current.Shutdown();
             }
+        }
+        private void Debug_Click(object sender, RoutedEventArgs e)
+        {
+            DebugWindow mainWindow = new DebugWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

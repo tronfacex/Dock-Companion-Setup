@@ -1,37 +1,47 @@
-﻿<Window x:Class="DockCompanionConfigSetup.MainWindow"
+﻿<Window x:Class="DockCompanionConfigSetup.DebugWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Dock Companion Initial Setup"
+        xmlns:local="clr-namespace:DockCompanionConfigSetup"
+        Title="Dock Companion Debug Tool"
         Width="800"
         Height="925"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" FontFamily="{StaticResource FontFamily}">
+    <Window.Resources>
+        <local:StringConverter x:Key="stringConverter"/>
+    </Window.Resources>
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="This application is used to create a Config.txt file for Dock Companion to reference. IF THIS APPLICATION IS LAUNCHING INSTEAD OF YOUR EXPECTED TARGET APPLICATION IT IS BECAUSE THE Config.txt FILE HAS BEEN MOVED OR DELETED - Follow the instructions to restore the Config.txt. Detailed instructions are available on Github." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <TextBlock Text="Dock Companion makes an educated guess about the ProcessName of an application based on it's EXE file name. Some applications are launched via a different EXE file than the main application EXE and therefore have a different ProcessName. Use this Debug tool to examine the ProcessName of open windows." Margin="20,40,20,10" TextWrapping="Wrap" />
         <ListBox Name="InstructionList" BorderThickness="0" BorderBrush="Transparent">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="IsHitTestVisible" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
-            <ListBoxItem>Step 1: Open 2 instances of the target application</ListBoxItem>
+            <ListBoxItem>Step 1: Open the target application</ListBoxItem>
             <ListBoxItem>Step 2: Click "Find Windows"</ListBoxItem>
-            <ListBoxItem>Step 3: Evaluate the Window Titles for a unique phrase that identifies your target application</ListBoxItem>
-            <ListBoxItem>Step 4: Type the unique phrase in the "Search Phrase" field exactly as it appears in the Window Titles</ListBoxItem>
-            <ListBoxItem>Step 5: Use the "Browse" button to navigate to the target application's exe file</ListBoxItem>
-            <ListBoxItem>Step 6: Click "Save"</ListBoxItem>
+            <ListBoxItem>Step 3: Find &amp; double click the entry for the target application</ListBoxItem>
+            <ListBoxItem>Step 4: Click "Browse..." and navigate to the target application's EXE file</ListBoxItem>
+            <ListBoxItem>Step 5: Click "Save" to override the previous config file with the new values</ListBoxItem>
         </ListBox>
         <ListBox Name="WindowTitles"
          Margin="20,20,20,30"
          FontSize="12"
          ItemsSource="{Binding WindowList}" 
          Height="350" 
-         Width="650"/>
+         Width="650"
+         PreviewMouseDoubleClick="WindowTitles_PreviewMouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource stringConverter}}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button Name="GetWindows"
         Margin="20,20,20,5"
         Content="Find Windows"
         Click="GetWindows_Click"/>
         <StackPanel Orientation="Vertical" Margin="20,20,20,5">
-            <TextBlock Text="Search Phrase:" Margin="0,0,0,5" />
+            <TextBlock Text="Process Name:" Margin="0,0,0,5" />
             <TextBox Name="inputString" Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="20,20,20,20">
