@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\Documents\Builds\ConfigSetup\</OutputPath>
+    <OutputPath>..\..\..\..\Documents\Builds\ConfigSetup ProcessName\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -56,8 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="InitialSetupWindow.xaml.cs">
+      <DependentUpon>InitialSetupWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RetrieveWindowHandles.cs" />
     <Compile Include="StringConverter.cs" />
+    <Page Include="InitialSetupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="DockCompanionConfigSetup.InitialSetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockCompanionConfigSetup"
+        mc:Ignorable="d"
+        Title="Dock Companion Initial Setup" Height="500" Width="650">
+    <Window.Resources>
+        <local:StringConverter x:Key="stringConverter"/>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="Welcome to Dock Companion's Initial Setup. Please navigate to the application you would like Dock Companion to target and click Save. If this window is launching instead of your expected target application it is because the Config.txt file has been deleted or moved. You can restore it with this application." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+            <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
+                <Button Content="Browse..." Click="BrowseButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Name="Save" Content="Save" Margin="20,20,20,20" Width="300" Click="Save_Click"/>
+        <TextBlock Text="Dock Companion makes an educated guess about the ProcessName of an application based on it's EXE file name. Some applications are launched via a different EXE file and therefore have a different ProcessName. Use this Debug tool to examine the ProcessName of open windows." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
+    </StackPanel>
+</Window>
