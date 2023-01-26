@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using HWND = System.IntPtr;
+using System.Diagnostics;
 
 namespace DockCompanionConfigSetup
 {
@@ -20,7 +21,6 @@ namespace DockCompanionConfigSetup
 
             EnumWindows(delegate (HWND hWnd, int lParam)
             {
-                if (hWnd == shellWindow) return true;
                 if (!IsWindowVisible(hWnd)) return true;
 
                 int length = GetWindowTextLength(hWnd);
@@ -28,8 +28,10 @@ namespace DockCompanionConfigSetup
 
                 StringBuilder builder = new StringBuilder(length);
                 GetWindowText(hWnd, builder, length + 1);
-
-                windows[hWnd] = builder.ToString();
+                uint lpdwProcessId;
+                GetWindowThreadProcessId(hWnd, out lpdwProcessId);
+                var process = Process.GetProcessById((int)lpdwProcessId);
+                windows[hWnd] = builder.ToString() + "," + process.ProcessName;
                 return true;
 
             }, 0);
@@ -53,6 +55,9 @@ namespace DockCompanionConfigSetup
 
         [DllImport("USER32.DLL")]
         private static extern IntPtr GetShellWindow();
+
+        [DllImport("USER32.DLL")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
     }
 }
 
