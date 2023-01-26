@@ -71,5 +71,17 @@ namespace DockCompanionConfigSetup
                 Application.Current.Shutdown();
             }
         }
+        private void WindowTitles_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Get the selected item
+            var selectedItem = WindowTitles.SelectedItem as string;
+
+            // Extract the string after the last "|"
+            var lastPipeIndex = selectedItem.LastIndexOf("|");
+            var targetString = selectedItem.Substring(lastPipeIndex + 1);
+
+            // Set the text of the inputString TextBox
+            inputString.Text = targetString;
+        }
     }
 }
