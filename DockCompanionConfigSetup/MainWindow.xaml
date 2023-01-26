@@ -1,10 +1,14 @@
 ﻿<Window x:Class="DockCompanionConfigSetup.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DockCompanionConfigSetup"
         Title="Dock Companion Initial Setup"
         Width="800"
         Height="925"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:StringConverter x:Key="stringConverter"/>
+    </Window.Resources>
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="This application is used to create a Config.txt file for Dock Companion to reference. IF THIS APPLICATION IS LAUNCHING INSTEAD OF YOUR EXPECTED TARGET APPLICATION IT IS BECAUSE THE Config.txt FILE HAS BEEN MOVED OR DELETED - Follow the instructions to restore the Config.txt. Detailed instructions are available on Github." Margin="20,40,20,10" TextWrapping="Wrap" />
         <ListBox Name="InstructionList" BorderThickness="0" BorderBrush="Transparent">
