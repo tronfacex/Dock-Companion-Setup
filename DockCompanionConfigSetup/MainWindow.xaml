@@ -29,7 +29,13 @@
          FontSize="12"
          ItemsSource="{Binding WindowList}" 
          Height="350" 
-         Width="650"/>
+         Width="650">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource stringConverter}}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Button Name="GetWindows"
         Margin="20,20,20,5"
         Content="Find Windows"

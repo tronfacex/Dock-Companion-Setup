@@ -13,7 +13,7 @@ namespace DockCompanionConfigSetup
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Code to replace the comma with a space
-            return value.ToString().Replace(",", " ");
+            return value.ToString().Replace(",", " | ");
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
