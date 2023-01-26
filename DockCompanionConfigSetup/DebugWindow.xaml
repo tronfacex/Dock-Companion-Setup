@@ -5,12 +5,12 @@
         Title="Dock Companion Debug Tool"
         Width="800"
         Height="925"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" FontFamily="{StaticResource FontFamily}">
     <Window.Resources>
         <local:StringConverter x:Key="stringConverter"/>
     </Window.Resources>
     <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Some applications are launched via a different EXE file than the main application EXE and therefore have a different ProcessName. Use this Debug tool to examine the ProcessName of open windows." Margin="20,40,20,10" TextWrapping="Wrap" />
+        <TextBlock Text="Dock Companion makes an educated guess about the ProcessName of an application based on it's EXE file name. Some applications are launched via a different EXE file than the main application EXE and therefore have a different ProcessName. Use this Debug tool to examine the ProcessName of open windows." Margin="20,40,20,10" TextWrapping="Wrap" />
         <ListBox Name="InstructionList" BorderThickness="0" BorderBrush="Transparent">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -19,10 +19,9 @@
             </ListBox.ItemContainerStyle>
             <ListBoxItem>Step 1: Open the target application</ListBoxItem>
             <ListBoxItem>Step 2: Click "Find Windows"</ListBoxItem>
-            <ListBoxItem>Step 3: Find the target application window in the list of windows</ListBoxItem>
-            <ListBoxItem>Step 4: </ListBoxItem>
-            <ListBoxItem>Step 5: Use the "Browse" button to navigate to the target application's exe file</ListBoxItem>
-            <ListBoxItem>Step 6: Click "Save"</ListBoxItem>
+            <ListBoxItem>Step 3: Find &amp; double click the entry for the target application</ListBoxItem>
+            <ListBoxItem>Step 4: Click "Browse..." and navigate to the target application's EXE file</ListBoxItem>
+            <ListBoxItem>Step 5: Click "Save" to override the previous config file with the new values</ListBoxItem>
         </ListBox>
         <ListBox Name="WindowTitles"
          Margin="20,20,20,30"
@@ -42,7 +41,7 @@
         Content="Find Windows"
         Click="GetWindows_Click"/>
         <StackPanel Orientation="Vertical" Margin="20,20,20,5">
-            <TextBlock Text="Search Phrase:" Margin="0,0,0,5" />
+            <TextBlock Text="Process Name:" Margin="0,0,0,5" />
             <TextBox Name="inputString" Margin="0,0,0,5"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="20,20,20,20">

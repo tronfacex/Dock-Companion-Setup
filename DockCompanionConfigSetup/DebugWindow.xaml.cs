@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
+using System.Globalization;
 
 namespace DockCompanionConfigSetup
 {
@@ -22,6 +23,7 @@ namespace DockCompanionConfigSetup
     /// </summary>
     public partial class DebugWindow : Window
     {
+        private StringConverter _stringConverter = new StringConverter();
         //RetrieveWindowHandles retrieveWindowHandles;
         public DebugWindow()
         {
@@ -73,15 +75,9 @@ namespace DockCompanionConfigSetup
         }
         private void WindowTitles_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // Get the selected item
-            var selectedItem = WindowTitles.SelectedItem as string;
-
-            // Extract the string after the last "|"
-            var lastPipeIndex = selectedItem.LastIndexOf("|");
-            var targetString = selectedItem.Substring(lastPipeIndex + 1);
-
-            // Set the text of the inputString TextBox
-            inputString.Text = targetString;
+            var selectedItem = WindowTitles.SelectedItem;
+            var originalValue = (string)_stringConverter.ConvertBack(selectedItem, typeof(string), null, CultureInfo.CurrentCulture);
+            inputString.Text = originalValue;
         }
     }
 }

@@ -17,7 +17,8 @@ namespace DockCompanionConfigSetup
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            string[] splitString = value.ToString().Split(',');
+            return splitString[splitString.Length - 1].TrimEnd(']');
         }
     }
 }
