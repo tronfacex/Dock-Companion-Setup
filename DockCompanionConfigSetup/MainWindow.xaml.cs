@@ -20,10 +20,10 @@ namespace DockCompanionConfigSetup
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DebugWindow : Window
     {
         //RetrieveWindowHandles retrieveWindowHandles;
-        public MainWindow()
+        public DebugWindow()
         {
             InitializeComponent();
         }

@@ -66,7 +66,7 @@ namespace DockCompanionConfigSetup
         }
         private void Debug_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            DebugWindow mainWindow = new DebugWindow();
             mainWindow.Show();
             this.Close();
         }
