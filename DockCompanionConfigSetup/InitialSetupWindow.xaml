@@ -9,20 +9,31 @@
     <Window.Resources>
         <local:StringConverter x:Key="stringConverter"/>
     </Window.Resources>
-    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Welcome to Dock Companion's Initial Setup. Click &quot;Browse...&quot; and navigate to the application you would like Dock Companion to target and Click &quot;Save&quot;." Margin="20,40,20,10" TextWrapping="Wrap" />
-        <StackPanel Orientation="Vertical" Margin="20,20,20,20">
-            <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
-            <StackPanel Orientation="Horizontal">
-                <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
-                <Button Content="Browse..." Click="BrowseButton_Click"/>
-            </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Image Source="C:\Users\tydan\source\repos\DockCompanionConfigSetup\DockCompanionConfigSetup\DC-Logo-Text.png" Width="40" Height="40" HorizontalAlignment="Left" Margin="10,0,0,0" />
+            <TextBlock Text="Title" FontWeight="Bold" Margin="50,0,0,0" VerticalAlignment="Center" />
         </StackPanel>
-        <Button Name="Save" Content="Save" Margin="20,20,20,2" Width="300" Click="Save_Click"/>
-        <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
+        <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Welcome to Dock Companion's Initial Setup. Click &quot;Browse...&quot; and navigate to the application you would like Dock Companion to target and Click &quot;Save&quot;." Margin="20,40,20,10" TextWrapping="Wrap" />
+            <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+                <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
+                    <Button Content="Browse..." Click="BrowseButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Name="Save" Content="Save" Margin="20,20,20,2" Width="300" Click="Save_Click"/>
+            <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
     <Run FontWeight="Bold" FontSize="14" Text="IF THIS WINDOW IS LAUNCHING INSTEAD OF THE INTENDED TARGET APPLICATION THERE IS AN ISSUE WITH THE CONFIG.TXT." />
     <Run FontSize="12" Text="You can try repeating the Initial Setup process above or use the Debug tool below to set a custom Process Name." />
-        </TextBlock>
-        <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
-    </StackPanel>
+            </TextBlock>
+            <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>
