@@ -5,35 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DockCompanionConfigSetup"
         mc:Ignorable="d"
-        Title="Dock Companion Initial Setup" Height="500" Width="650" FontFamily="{StaticResource FontFamily}">
+        Title="Dock Companion Initial Setup" Height="450" Width="650" FontFamily="{StaticResource FontFamily}">
     <Window.Resources>
         <local:StringConverter x:Key="stringConverter"/>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <Image Source="C:\Users\tydan\source\repos\DockCompanionConfigSetup\DockCompanionConfigSetup\DC-Logo-Text.png" Width="40" Height="40" HorizontalAlignment="Left" Margin="10,0,0,0" />
-            <TextBlock Text="Title" FontWeight="Bold" Margin="50,0,0,0" VerticalAlignment="Center" />
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Welcome to Dock Companion's Initial Setup. Click &quot;Browse...&quot; and navigate to the application you would like Dock Companion to target and Click &quot;Save&quot;." Margin="20,40,20,10" TextWrapping="Wrap" />
-            <StackPanel Orientation="Vertical" Margin="20,20,20,20">
-                <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
-                <StackPanel Orientation="Horizontal">
-                    <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
-                    <Button Content="Browse..." Click="BrowseButton_Click"/>
-                </StackPanel>
-            </StackPanel>
-            <Button Name="Save" Content="Save" Margin="20,20,20,2" Width="300" Click="Save_Click"/>
-            <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
-    <Run FontWeight="Bold" FontSize="14" Text="IF THIS WINDOW IS LAUNCHING INSTEAD OF THE INTENDED TARGET APPLICATION THERE IS AN ISSUE WITH THE CONFIG.TXT." />
-    <Run FontSize="12" Text="You can try repeating the Initial Setup process above or use the Debug tool below to set a custom Process Name." />
+    <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="C:\Users\tydan\source\repos\DockCompanionConfigSetup\DockCompanionConfigSetup\DC-Logo-No-Text.png" Width="70" Height="70" Margin="30,0,0,0" />
+            <TextBlock TextWrapping="Wrap" FontSize="15" Grid.Column="1" VerticalAlignment="Center" Margin="10,20,0,0">
+    Welcome to Dock Companion's Initial Setup. Click 
+    <Run FontWeight="Bold">"Browse..."</Run> and navigate to the application you would like Dock Companion to target and Click 
+    <Run FontWeight="Bold">"Save"</Run>.
             </TextBlock>
-            <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
+        </Grid>
+        <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+            <TextBlock Text="Target Application Filepath:" Margin="0,0,0,5" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="inputFilePath" Width="450" Margin="0,0,10,0"/>
+                <Button Content="Browse..." Click="BrowseButton_Click"/>
+            </StackPanel>
         </StackPanel>
-    </Grid>
+        <Button Name="Save" Content="Save" Margin="20,20,20,2" FontWeight="Bold" Width="300" Click="Save_Click"/>
+        <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
+    <Run FontWeight="Bold" FontSize="14" Text="DEBUG TOOL:" />
+    <Run FontSize="12" Text="If Dock Companion continues to open new target application windows when it shouldn't, the target application may have a mismatched Process Name. Use the Debug tool below to find windows by Process Name and fix the Config.txt." />
+        </TextBlock>
+        <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
+    </StackPanel>
 </Window>
