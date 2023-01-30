@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Source="C:\Users\tydan\source\repos\DockCompanionConfigSetup\DockCompanionConfigSetup\DC-Logo-No-Text.png" Width="70" Height="70" Margin="30,0,0,0" />
+            <Image Source="pack://application:,,,/DC-Logo-No-Text.png" Width="70" Height="70" Margin="30,0,0,0" />
             <TextBlock TextWrapping="Wrap" FontSize="15" Grid.Column="1" VerticalAlignment="Center" Margin="10,20,0,0">
     Welcome to Dock Companion's Initial Setup. Click 
     <Run FontWeight="Bold">"Browse..."</Run> and navigate to the application you would like Dock Companion to target and Click 
@@ -32,7 +32,7 @@
         <Button Name="Save" Content="Save" Margin="20,20,20,2" FontWeight="Bold" Width="300" Click="Save_Click"/>
         <TextBlock Margin="20,40,20,10" TextWrapping="Wrap">
     <Run FontWeight="Bold" FontSize="14" Text="DEBUG TOOL:" />
-    <Run FontSize="12" Text="If Dock Companion continues to open new target application windows when it shouldn't, the target application may have a mismatched Process Name. Use the Debug tool below to find windows by Process Name and fix the Config.txt." />
+    <Run FontSize="12" Text="If Dock Companion continues to open new target application windows when it shouldn't, the target application may have a mismatched Process Name. Use the Debug tool below to find windows by Process Name and re-save the Config.txt." />
         </TextBlock>
         <Button Name="Debug" Margin="20,20,20,5" Content="Debug" Width="100" Click="Debug_Click"/>
     </StackPanel>
