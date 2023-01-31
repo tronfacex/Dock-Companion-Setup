@@ -1,4 +1,4 @@
-# Dock-Companion Config Setup & Debugger
+# Dock-Companion-Setup
 <img src="https://github.com/tronfacex/Dock-Companion/blob/master/DC-Logo-Text.png" width="20%" ALIGN="left"></img>
 
 <h2 id="about">About</h2>
