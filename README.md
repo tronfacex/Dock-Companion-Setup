@@ -10,7 +10,7 @@ This repo does not contain a release, but you can find the latest release packag
 
 This project is published with a GNU General Public License v3.0.
 
-Attributions are located here.
+Attributions are located [here](ATTRIBUTIONS.md).
 
 <h2 id="intial-setup-window">Initial Setup Window:</h2>
 
