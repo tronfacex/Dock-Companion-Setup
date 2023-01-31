@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace DockCompanionConfigSetup
 {
-    /// <summary>Contains functionality to get all the open windows.</summary>
+    /// <summary>Contains functionality to get all the open windows. This class was adapted from a StackOverflow post: https://stackoverflow.com/questions/7268302/get-the-titles-of-all-open-windows</summary>
     public static class OpenWindowGetter
     {
         /// <summary>Returns a dictionary that contains the handle and title of all the open windows.</summary>
